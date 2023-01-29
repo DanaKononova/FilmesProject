@@ -1,16 +1,19 @@
-package com.example.filmesproject
+package com.example.filmesproject.ui.films
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.filmesproject.model.FilmRepositoryImpl
-import com.example.filmesproject.model.models.UnionType
-import com.example.filmesproject.presenter.FilmPresenter
-import com.example.filmesproject.presenter.FilmPresenterImpl
-import com.example.filmesproject.user_interface.DescriptionFragment
-import com.example.filmesproject.user_interface.FilmAdapter
-import com.example.filmesproject.user_interface.FilmView
+import com.example.filmesproject.R
+import com.example.filmesproject.data.FilmDataResponseImpl
+import com.example.filmesproject.data.models.FilmDataResponse
+import com.example.filmesproject.ui.films.presenter.FilmPresenter
+import com.example.filmesproject.ui.films.presenter.FilmPresenterImpl
+import com.example.filmesproject.ui.low_rating_films.LowRatingFilmsActivity
+import com.example.filmesproject.ui.DescriptionFragment
+import com.example.filmesproject.ui.FilmAdapter
 
 class MainActivity : AppCompatActivity(), FilmView {
     private var presenter: FilmPresenter? = null
@@ -18,6 +21,12 @@ class MainActivity : AppCompatActivity(), FilmView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val randomIntent = Intent(this, LowRatingFilmsActivity::class.java)
+        val button = findViewById<Button>(R.id.button2)
+        button.setOnClickListener {
+            startActivity(randomIntent)
+        }
 
         presenter = FilmPresenterImpl(this)
         presenter?.getFilms()
@@ -28,7 +37,7 @@ class MainActivity : AppCompatActivity(), FilmView {
         else supportFragmentManager.popBackStack()
     }
 
-    override fun showFilms(films: List<UnionType>) {
+    override fun showFilms(films: List<FilmDataResponse>) {
         val recycler = findViewById<RecyclerView>(R.id.rvFilmList)
         val itemClick: (name: String, description: String) -> Unit = { name, description ->
             val messageFragment = DescriptionFragment().newInstance(name, description)
@@ -41,11 +50,8 @@ class MainActivity : AppCompatActivity(), FilmView {
         val adapter = FilmAdapter(itemClick)
         recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        val films = FilmRepositoryImpl().getFilms()
+        val films = FilmDataResponseImpl().getFilms()
         adapter.setItems(films)
-
-        val androidListNew = Server.getFilms()
-        adapter.setItems(androidListNew)
     }
 
     override fun onDestroy() {
