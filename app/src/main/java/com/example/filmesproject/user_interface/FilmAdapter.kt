@@ -1,11 +1,14 @@
-package com.example.filmesproject
+package com.example.filmesproject.user_interface
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.filmesproject.R
+import com.example.filmesproject.model.models.UnionType
 
-class FilmAdapter(private val itemClick: (String, String) -> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class FilmAdapter(private val itemClick: (String, String) -> Unit) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     companion object {
         private const val TITLE_TYPE = 1
         private const val BODY_TYPE = 2

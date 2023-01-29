@@ -1,7 +1,4 @@
-package com.example.filmesproject
-
-import android.annotation.SuppressLint
-import androidx.annotation.StringRes
+package com.example.filmesproject.model.models
 
 sealed class UnionType {
     data class FilmData(
