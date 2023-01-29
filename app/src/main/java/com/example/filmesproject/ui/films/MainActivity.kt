@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity(), FilmView {
             val messageFragment = DescriptionFragment().newInstance(name, description)
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.frameLayout, messageFragment)
+                .add(R.id.frameLayout, messageFragment)
                 .addToBackStack("Fragment")
                 .commit()
         }

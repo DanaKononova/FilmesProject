@@ -25,12 +25,12 @@ class LowRatingFilmsActivity : AppCompatActivity(), LowRatingFilmsView {
     }
 
     override fun showLowRatingFilms(films: List<FilmData>) {
-        val recycler = findViewById<RecyclerView>(R.id.rvFilmList)
+        val recycler = findViewById<RecyclerView>(R.id.rvFilmList2)
         val itemClick: (name: String, description: String) -> Unit = { name, description ->
             val messageFragment = DescriptionFragment().newInstance(name, description)
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.frameLayout, messageFragment)
+                .add(R.id.frameLayout, messageFragment)
                 .addToBackStack("Fragment")
                 .commit()
         }
