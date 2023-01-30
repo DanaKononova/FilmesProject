@@ -7,7 +7,7 @@ import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.filmesproject.R
-import com.example.filmesproject.data.FilmDataResponseImpl
+import com.example.filmesproject.data.FilmDataRepositoryImpl
 import com.example.filmesproject.data.models.FilmDataResponse
 import com.example.filmesproject.ui.films.presenter.FilmPresenter
 import com.example.filmesproject.ui.films.presenter.FilmPresenterImpl
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity(), FilmView {
         val adapter = FilmAdapter(itemClick)
         recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        val films = FilmDataResponseImpl().getFilms()
+        val films = FilmDataRepositoryImpl().getFilms()
         adapter.setItems(films)
     }
 

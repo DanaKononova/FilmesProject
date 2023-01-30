@@ -1,10 +1,10 @@
 package com.example.filmesproject.ui.films.presenter
 
-import com.example.filmesproject.domain.FilmRepositoryImpl
+import com.example.filmesproject.Server
 import com.example.filmesproject.ui.films.FilmView
 
 class FilmPresenterImpl(private var view: FilmView?) : FilmPresenter {
-    private val repository: FilmRepositoryImpl = FilmRepositoryImpl()
+    private val repository = Server
 
     override fun getFilms() {
         val films = repository.getFilms()
