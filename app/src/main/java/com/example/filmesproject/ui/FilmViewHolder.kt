@@ -1,4 +1,4 @@
-package com.example.filmesproject.user_interface
+package com.example.filmesproject.ui
 
 import android.view.View
 import android.widget.ImageView
@@ -7,11 +7,11 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.filmesproject.R
-import com.example.filmesproject.model.models.UnionType
+import com.example.filmesproject.domain.models.FilmData
 
 class FilmViewHolder(itemView: View, private val itemClick: (String, String) -> Unit) :
     RecyclerView.ViewHolder(itemView) {
-    fun onBind(item: UnionType.FilmData) {
+    fun onBind(item: FilmData) {
         val poster = itemView.findViewById<ImageView>(R.id.ivPoster)
         val name = itemView.findViewById<TextView>(R.id.tvName)
         val hasOscar = itemView.findViewById<ImageView>(R.id.ivHasOscar)
