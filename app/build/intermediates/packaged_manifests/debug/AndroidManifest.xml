@@ -30,7 +30,14 @@
         android:testOnly="true"
         android:theme="@style/Theme.FilmesProject" >
         <activity
-            android:name="com.example.filmesproject.MainActivity"
+            android:name="com.example.filmesproject.ui.low_rating_films.LowRatingFilmsActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.example.filmesproject.ui.films.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
