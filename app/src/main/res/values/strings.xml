@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">FilmesProject</string>
+    <string name="button">Low Rating</string>
 </resources>

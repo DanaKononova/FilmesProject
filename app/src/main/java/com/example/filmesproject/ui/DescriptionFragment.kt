@@ -1,4 +1,4 @@
-package com.example.filmesproject.user_interface
+package com.example.filmesproject.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -24,9 +24,7 @@ class DescriptionFragment() : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.description, container, false)
         return view
