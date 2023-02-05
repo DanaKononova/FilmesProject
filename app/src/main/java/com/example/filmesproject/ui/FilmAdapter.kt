@@ -12,8 +12,7 @@ class FilmAdapter(private val itemClick: (String, String) -> Unit) :
     private val films: MutableList<FilmData> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmViewHolder {
-        val view =
-            LayoutInflater.from(parent.context)
+        val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.rv_filmes_list, parent, false)
         return FilmViewHolder(view, itemClick)
     }
