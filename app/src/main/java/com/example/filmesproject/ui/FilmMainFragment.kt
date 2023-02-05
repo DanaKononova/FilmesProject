@@ -24,19 +24,21 @@ class FilmMainFragment: Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val recycler = view.findViewById<RecyclerView>(R.id.rvFilmList)
         val itemClick: (String, String) -> Unit = { name, description ->
-            val action = FilmMainFragmentDirections.actionMainFragmentToDescriptionFragment()
+            val action = FilmMainFragmentDirections.actionMainFragmentToDescriptionFragment(name, description)
             findNavController().navigate(action)
         }
 
         viewModel.liveData.observe(viewLifecycleOwner) {
-            val adapter = FilmAdapter(itemClick)
+            val adapter = FilmAdapter(it, itemClick)
             recycler.adapter = adapter
             recycler.layoutManager =
                 LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
         }
 
         viewModel.getData()
+
     }
 }

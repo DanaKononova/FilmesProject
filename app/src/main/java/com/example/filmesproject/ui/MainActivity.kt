@@ -16,25 +16,8 @@ class MainActivity : AppCompatActivity(){
 
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                findNavController(R.id.mainFragment).popBackStack()
+                findNavController(R.id.nav_fragments).popBackStack()
             }
         })
     }
-//
-//    override fun showFilms(films: List<FilmDataResponse>) {
-//        val recycler = findViewById<RecyclerView>(R.id.rvFilmList)
-//        val itemClick: (name: String, description: String) -> Unit = { name, description ->
-//            val messageFragment = DescriptionFragment().newInstance(name, description)
-//            supportFragmentManager
-//                .beginTransaction()
-//                .add(R.id.frameLayout, messageFragment)
-//                .addToBackStack("Fragment")
-//                .commit()
-//        }
-//        val adapter = FilmAdapter(itemClick)
-//        recycler.adapter = adapter
-//        recycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-//        val films = FilmDataRepositoryImpl().getFilms()
-//        adapter.setItems(films)
-//    }
 }

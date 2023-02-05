@@ -7,13 +7,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.filmesproject.R
 import com.example.filmesproject.domain.models.FilmData
 
-class FilmAdapter(private val itemClick: (String, String) -> Unit) :
-    RecyclerView.Adapter<FilmViewHolder>() {
-    private val films: MutableList<FilmData> = mutableListOf()
+class FilmAdapter(
+    private val films: List<FilmData>,
+    private val itemClick: (String, String) -> Unit
+) : RecyclerView.Adapter<FilmViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmViewHolder {
         val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.rv_filmes_list, parent, false)
+            .inflate(R.layout.rv_filmes_list, parent, false)
         return FilmViewHolder(view, itemClick)
     }
 
@@ -22,11 +23,4 @@ class FilmAdapter(private val itemClick: (String, String) -> Unit) :
     }
 
     override fun getItemCount(): Int = films.size
-
-    @SuppressLint("NotifyDataSetChanged")
-    fun setItems(films: List<FilmData>) {
-        this.films.clear()
-        this.films.addAll(films)
-        notifyDataSetChanged()
-    }
 }

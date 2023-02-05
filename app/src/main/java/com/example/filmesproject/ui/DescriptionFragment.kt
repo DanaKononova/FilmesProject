@@ -22,9 +22,9 @@ class DescriptionFragment() : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val name = view.findViewById<TextView>(R.id.filmName)
+        val name = view.findViewById<TextView>(R.id.tv_name)
         name.text = args.filmName
-        val description = view.findViewById<TextView>(R.id.description)
+        val description = view.findViewById<TextView>(R.id.tv_description)
         description.text = args.description
     }
 }
