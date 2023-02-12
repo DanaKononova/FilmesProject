@@ -1,8 +1,9 @@
-package com.example.filmesproject
+package com.example.filmesproject.data
 
 import com.example.filmesproject.data.models.FilmDataResponse
+import javax.inject.Inject
 
-object Server {
+class Server @Inject constructor() {
     fun getFilms(): List<FilmDataResponse> = listOf(
         FilmDataResponse(
             "https://avatars.mds.yandex.net/get-kinopoisk-image/6201401/a2d5bcae-a1a9-442f-8195-f5373a5ba77f/600x900",

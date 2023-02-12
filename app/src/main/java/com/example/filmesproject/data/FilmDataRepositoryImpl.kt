@@ -1,11 +1,15 @@
 package com.example.filmesproject.data
 
-import com.example.filmesproject.Server
 import com.example.filmesproject.data.mapper.FilmMapper
 import com.example.filmesproject.domain.repository.FilmRepository
 import com.example.filmesproject.domain.models.FilmData
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class FilmDataRepositoryImpl : FilmRepository {
-    val mapper = FilmMapper()
-    override fun getFilms(): List<FilmData> = Server.getFilms().map { mapper(it) }
+@Singleton
+class FilmDataRepositoryImpl @Inject constructor(
+    private val mapper: FilmMapper,
+    private val server: Server
+) : FilmRepository {
+    override fun getFilms(): List<FilmData> = server.getFilms().map { mapper(it) }
 }

@@ -11,6 +11,7 @@ import com.example.filmesproject.domain.models.FilmData
 
 class FilmViewHolder(itemView: View, private val itemClick: (String, String) -> Unit) :
     RecyclerView.ViewHolder(itemView) {
+
     fun onBind(item: FilmData) {
         val poster = itemView.findViewById<ImageView>(R.id.ivPoster)
         val name = itemView.findViewById<TextView>(R.id.tvName)
