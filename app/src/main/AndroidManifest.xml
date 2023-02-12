@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FilmesProject"
         tools:targetApi="31"
-        android:name=".ExampleProject">
+        android:name=".ExampleApplication">
 
         <activity
             android:name=".ui.MainActivity"
