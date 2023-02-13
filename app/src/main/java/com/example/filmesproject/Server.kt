@@ -1,5 +1,7 @@
 package com.example.filmesproject
 
+import com.example.filmesproject.model.models.UnionType
+
 object Server {
     fun getFilms(): List<UnionType> = listOf(
         UnionType.TitleData("Комедия"),
