@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.filmesproject.app-mergeDebugResources-28:/values-ldltr-v21/values-ldltr-v21.xml",
+            "outputFile": "com.example.filmesproject.app-mergeDebugResources-44:/values-ldltr-v21/values-ldltr-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\dano4\\.gradle\\caches\\transforms-3\\e4a8049e253b5797baef35daaf535720\\transformed\\appcompat-1.6.0\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "source": "C:\\Users\\dano4\\.gradle\\caches\\transforms-3\\1c306fa7e9c41774554c5cc14717b138\\transformed\\appcompat-1.6.0\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
