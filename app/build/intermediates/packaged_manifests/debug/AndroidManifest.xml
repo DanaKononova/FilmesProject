@@ -18,6 +18,7 @@
     <uses-permission android:name="com.example.filmesproject.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 
     <application
+        android:name="com.example.filmesproject.ExampleApplication"
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -30,14 +31,7 @@
         android:testOnly="true"
         android:theme="@style/Theme.FilmesProject" >
         <activity
-            android:name="com.example.filmesproject.ui.low_rating_films.LowRatingFilmsActivity"
-            android:exported="false" >
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name="com.example.filmesproject.ui.films.MainActivity"
+            android:name="com.example.filmesproject.ui.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -49,6 +43,13 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+        <uses-library
+            android:name="androidx.window.extensions"
+            android:required="false" />
+        <uses-library
+            android:name="androidx.window.sidecar"
+            android:required="false" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"
