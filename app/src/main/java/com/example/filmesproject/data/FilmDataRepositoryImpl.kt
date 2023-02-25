@@ -12,4 +12,11 @@ class FilmDataRepositoryImpl @Inject constructor(
     private val server: Server
 ) : FilmRepository {
     override fun getFilms(): List<FilmData> = server.getFilms().map { mapper(it) }
+
+    companion object {
+        suspend fun getFavouriteFilm(): FilmData {
+            val user = Server.getUser()
+            return Server.getFilmById(user.favouriteMovieId)
+        }
+    }
 }
