@@ -7,24 +7,22 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.filmesproject.R
+import com.example.filmesproject.databinding.FragmentMainBinding
+import com.example.filmesproject.databinding.RvFilmesListBinding
 import com.example.filmesproject.domain.models.FilmData
 
-class FilmViewHolder(itemView: View, private val itemClick: (String, String) -> Unit) :
-    RecyclerView.ViewHolder(itemView) {
+class FilmViewHolder(private val binding: RvFilmesListBinding, private val itemClick: (String, String) -> Unit) :
+    RecyclerView.ViewHolder(binding.root) {
 
     fun onBind(item: FilmData) {
-        val poster = itemView.findViewById<ImageView>(R.id.ivPoster)
-        val name = itemView.findViewById<TextView>(R.id.tvName)
-        val hasOscar = itemView.findViewById<ImageView>(R.id.ivHasOscar)
-        val rating = itemView.findViewById<TextView>(R.id.tvRating)
+        binding.tvName.text = item.name
+        binding.ivHasOscar.isVisible = item.hasOskar
+        binding.tvRating.text = "rating " + item.rating
 
         Glide
             .with(itemView)
             .load(item.poster)
-            .into(poster)
-        name.text = item.name
-        hasOscar.isVisible = item.hasOskar
-        rating.text = "rating " + item.rating
+            .into(binding.ivPoster)
 
         itemView.setOnClickListener {
             itemClick.invoke(item.name, item.description)
