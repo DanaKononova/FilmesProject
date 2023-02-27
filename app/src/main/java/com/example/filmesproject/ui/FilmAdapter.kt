@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.filmesproject.R
+import com.example.filmesproject.databinding.RvFilmesListBinding
 import com.example.filmesproject.domain.models.FilmData
 
 class FilmAdapter(
@@ -12,9 +13,8 @@ class FilmAdapter(
 ) : RecyclerView.Adapter<FilmViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.rv_filmes_list, parent, false)
-        return FilmViewHolder(view, itemClick)
+        val binding = RvFilmesListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return FilmViewHolder(binding, itemClick)
     }
 
     override fun onBindViewHolder(holder: FilmViewHolder, position: Int) {
